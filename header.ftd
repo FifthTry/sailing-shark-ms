@@ -1,7 +1,6 @@
 -- import: fifthtry.github.io/sailing-shark-ms/assets
 -- import: fastn/processors as pr
 -- import: fifthtry.github.io/ms-docs/header as header-docs
--- import: fifthtry.github.io/sailing-shark-ms/header 
 
 -- pr.sitemap-data sitemap:
 $processor$: pr.sitemap
@@ -10,52 +9,52 @@ $processor$: pr.sitemap
 
 -- header-docs.header-docs:
 
--- header.simple-header: 
+-- simple-header: 
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 links: $sitemap.sections
 
--- header.simple-header-center:
+-- simple-header-center:
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 links: $sitemap.sections
 
--- header.simple-header-left: 
+-- simple-header-left: 
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 cta-text: Button
 cta-link: header/
 
--- header.advanced-header:
-logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
-links: $sitemap.sections
-cta-text: Button
-cta-link: header/
-icons: $list-of-icons-and-links
-
--- header.balanced-header:
-logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
-links: $sitemap.sections
-cta-text: Button
-cta-link: header/
-
--- header.dashboard-header: 
+-- advanced-header:
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 links: $sitemap.sections
 cta-text: Button
 cta-link: header/
 icons: $list-of-icons-and-links
-user: $assets.files.assets.user.png
+
+-- balanced-header:
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+
+-- dashboard-header: 
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+icons: $list-of-icons-and-links
+user: $assets.files.assets.header.user.png
 user-link: header/
 
--- header.dashboard-header-searchable: 
+-- dashboard-header-searchable: 
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 links: $sitemap.sections
 cta-text: Button
 cta-link: header/
 icons: $list-of-icons-and-links
-user: $assets.files.assets.user.png
+user: $assets.files.assets.header.user.png
 user-link: header/
 placeholder: Label
 
--- header.header-with-cta: 
+-- header-with-cta: 
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 links: $sitemap.sections
 cta-text-1: Button
@@ -63,7 +62,7 @@ cta-link-1: header/
 cta-text-2: Button
 cta-link-2: header/
 
--- header.header-with-search:
+-- header-with-search:
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 links: $sitemap.sections
 cta-text: Button
@@ -71,7 +70,7 @@ cta-link: header/
 icons: $list-of-icons-and-links
 placeholder: Label
 
--- header.header-with-search:
+-- header-with-search:
 logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
 links: $sitemap.sections
 cta-text: Button
@@ -104,38 +103,18 @@ ftd.image-src src:
 -- icons-record list list-of-icons-and-links:
 
 -- icons-record: 
-src: $assets.files.assets.like.png
+src: $assets.files.assets.header.like.png
 
 -- icons-record: 
-src: $assets.files.assets.notification.png
+src: $assets.files.assets.header.notification.png
 
 -- icons-record: 
-src: $assets.files.assets.cart.png
+src: $assets.files.assets.header.cart.png
 
 -- icons-record: 
-src: $assets.files.assets.search.png
+src: $assets.files.assets.header.search.png
 
 -- end: list-of-icons-and-links
-
-
-
-
-
-
-
--- tabs-record list list-of-tabs:
-
--- tabs-record: 
-tabs: Navbar
-
--- tabs-record:
-tabs: Navbar
-
--- tabs-record:
-tabs: Navbar
-
--- end: list-of-tabs
-
 
 
 
