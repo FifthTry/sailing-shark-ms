@@ -1,11 +1,1146 @@
+-- import: fifthtry.github.io/sailing-shark-ms/assets
+-- import: fastn/processors as pr
 -- import: fifthtry.github.io/ms-docs/header as header-docs
--- import: fifthtry.github.io/wireframe-ms/hero as wireframe-hero
+-- import: fifthtry.github.io/sailing-shark-ms/header 
+
+-- pr.sitemap-data sitemap:
+$processor$: pr.sitemap
 
 -- ds.page: 
 
 -- header-docs.header-docs:
 
+-- header.simple-header: 
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+
+-- header.simple-header-center:
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+
+-- header.simple-header-left: 
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+cta-text: Button
+cta-link: header/
+
+-- header.advanced-header:
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+icons: $list-of-icons-and-links
+
+-- header.balanced-header:
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+
+-- header.dashboard-header: 
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+icons: $list-of-icons-and-links
+user: $assets.files.assets.user.png
+user-link: header/
+
+-- header.dashboard-header-searchable: 
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+icons: $list-of-icons-and-links
+user: $assets.files.assets.user.png
+user-link: header/
+placeholder: Label
+
+-- header.header-with-cta: 
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text-1: Button
+cta-link-1: header/
+cta-text-2: Button
+cta-link-2: header/
+
+-- header.header-with-search:
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+icons: $list-of-icons-and-links
+placeholder: Label
+
+-- header.header-with-search:
+logo: https://fastn.io/-/fastn.io/images/fastn-dark.svg
+links: $sitemap.sections
+cta-text: Button
+cta-link: header/
+icons: $list-of-icons-and-links
+placeholder: Label
 
 -- end: header-docs.header-docs
 
 -- end: ds.page
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- record icons-record:
+ftd.image-src src: 
+
+
+-- icons-record list list-of-icons-and-links:
+
+-- icons-record: 
+src: $assets.files.assets.like.png
+
+-- icons-record: 
+src: $assets.files.assets.notification.png
+
+-- icons-record: 
+src: $assets.files.assets.cart.png
+
+-- icons-record: 
+src: $assets.files.assets.search.png
+
+-- end: list-of-icons-and-links
+
+
+
+
+
+
+
+-- tabs-record list list-of-tabs:
+
+-- tabs-record: 
+tabs: Navbar
+
+-- tabs-record:
+tabs: Navbar
+
+-- tabs-record:
+tabs: Navbar
+
+-- end: list-of-tabs
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component advanced-header:
+optional caption title:
+optional ftd.image-src logo: 
+string cta-text:
+string cta-link:
+pr.toc-item list links: 
+icons-record list icons:
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 48
+
+-- ftd.row:
+align-self: center
+
+-- ftd.image: 
+if: { advanced-header.logo != NULL }
+src: $advanced-header.logo
+height.fixed.px: 33
+
+
+-- ftd.text: $advanced-header.title
+if: { advanced-header.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+width: fill-container
+align-self: center
+align-content: center
+
+-- section-loop: $obj.title
+$loop$: $advanced-header.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+
+-- ftd.row:
+spacing.fixed.px: 24
+align-content: center
+
+-- ftd.image:
+$loop$: $advanced-header.icons as $icons
+src: $icons.src
+
+-- cta-button: $advanced-header.cta-text
+role: primary
+link: $advanced-header.cta-link
+border-radius: 4 
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: advanced-header
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component balanced-header:
+optional caption title:
+optional ftd.image-src logo: 
+pr.toc-item list links: 
+string cta-text:
+string cta-link:
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+-- ftd.row:
+width: fill-container
+
+-- ftd.row:
+
+-- ftd.image: 
+if: { balanced-header.logo != NULL }
+src: $balanced-header.logo
+height.fixed.px: 33
+
+-- ftd.text: $balanced-header.title
+if: { balanced-header.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+align-content: center
+width: fill-container
+
+-- section-loop: $obj.title
+$loop$: $balanced-header.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+-- cta-button: $balanced-header.cta-text
+role: primary
+link: $balanced-header.cta-link
+border-radius: 4 
+
+
+-- end: ftd.row
+
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: balanced-header
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component dashboard-header-searchable:
+optional caption title:
+optional ftd.image-src logo: 
+string cta-text:
+string cta-link:
+pr.toc-item list links: 
+icons-record list icons:
+ftd.image-src user:
+string user-link:
+string placeholder:
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 48
+
+-- ftd.row:
+align-self: center
+
+-- ftd.image: 
+if: { dashboard-header-searchable.logo != NULL }
+src: $dashboard-header-searchable.logo
+height.fixed.px: 33
+
+
+-- ftd.text: $dashboard-header-searchable.title
+if: { dashboard-header-searchable.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+width: fill-container
+align-self: center
+
+-- section-loop: $obj.title
+$loop$: $dashboard-header-searchable.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+
+-- ftd.row:
+spacing.fixed.px: 24
+align-content: center
+
+
+-- ftd.text-input:
+margin-right.px: 8  
+min-width.fixed.px: 240
+placeholder: $dashboard-header-searchable.placeholder
+background.solid: transparent
+border-color: $inherited.colors.cta-primary.base
+border-width.px: 1 
+border-radius.px: 6
+padding.px: 15
+color: $inherited.colors.text
+
+
+-- ftd.image:
+$loop$: $dashboard-header-searchable.icons as $icons
+src: $icons.src
+
+
+-- user: $dashboard-header-searchable.title
+src: $dashboard-header-searchable.user
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: dashboard-header-searchable
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component dashboard-header:
+optional caption title:
+optional ftd.image-src logo: 
+string cta-text:
+string cta-link:
+pr.toc-item list links: 
+icons-record list icons:
+ftd.image-src user:
+string user-link:
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 48
+
+-- ftd.row:
+align-self: center
+
+-- ftd.image: 
+if: { dashboard-header.logo != NULL }
+src: $dashboard-header.logo
+height.fixed.px: 33
+
+
+-- ftd.text: $dashboard-header.title
+if: { dashboard-header.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+width: fill-container
+align-self: center
+
+-- section-loop: $obj.title
+$loop$: $dashboard-header.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+
+-- ftd.row:
+spacing.fixed.px: 24
+align-content: center
+
+-- ftd.image:
+$loop$: $dashboard-header.icons as $icons
+src: $icons.src
+
+
+-- user: $dashboard-header.title
+src: $dashboard-header.user
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: dashboard-header
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component header-with-cta:
+optional caption title:
+optional ftd.image-src logo: 
+string cta-text-1:
+string cta-link-1:
+string cta-text-2:
+string cta-link-2:
+pr.toc-item list links:
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 48
+
+-- ftd.row:
+align-self: center
+
+-- ftd.image: 
+if: { header-with-cta.logo != NULL }
+src: $header-with-cta.logo
+height.fixed.px: 33
+
+
+-- ftd.text: $header-with-cta.title
+if: { header-with-cta.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+width: fill-container
+align-self: center
+
+-- section-loop: $obj.title
+$loop$: $header-with-cta.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 16
+
+-- cta-button: $header-with-cta.cta-text-1
+role: transparent
+link: $header-with-cta.cta-link-1
+border-radius: 4 
+
+-- cta-button: $header-with-cta.cta-text-2
+role: primary
+link: $header-with-cta.cta-link-2
+border-radius: 4 
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: header-with-cta
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component header-with-search:
+optional caption title:
+optional ftd.image-src logo: 
+string cta-text:
+string cta-link:
+pr.toc-item list links: 
+icons-record list icons:
+string placeholder:
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 48
+
+-- ftd.row:
+align-self: center
+
+-- ftd.image: 
+if: { header-with-search.logo != NULL }
+src: $header-with-search.logo
+height.fixed.px: 33
+
+
+-- ftd.text: $header-with-search.title
+if: { header-with-search.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+width: fill-container
+align-content: center
+align-self: center
+
+-- section-loop: $obj.title
+$loop$: $header-with-search.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+
+-- ftd.row:
+spacing.fixed.px: 24
+align-content: center
+
+-- ftd.text-input:
+margin-right.px: 8
+min-width.fixed.px: 240
+placeholder: $header-with-search.placeholder
+background.solid: transparent
+border-color: $inherited.colors.cta-primary.base
+border-width.px: 1 
+border-radius.px: 6
+padding.px: 15
+color: $inherited.colors.text
+
+-- ftd.image:
+$loop$: $header-with-search.icons as $icons
+src: $icons.src
+
+-- end: ftd.row
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: header-with-search
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component simple-header:
+optional caption title:
+optional ftd.image-src logo:
+pr.toc-item list links: 
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+-- ftd.row:
+width: fill-container
+spacing: space-between
+
+-- ftd.row:
+align-self: center
+
+-- ftd.image: 
+if: { simple-header.logo != NULL }
+src: $simple-header.logo
+height.fixed.px: 33
+
+-- ftd.text: $simple-header.title
+if: { simple-header.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+
+-- section-loop: $obj.title
+$loop$: $simple-header.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+
+-- end: ftd.row
+
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: simple-header
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component simple-header-center:
+optional caption title:
+optional ftd.image-src logo: 
+pr.toc-item list links: 
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+-- ftd.row:
+width: fill-container
+
+-- ftd.row:
+
+-- ftd.image: 
+if: { simple-header-center.logo != NULL }
+src: $simple-header-center.logo
+height.fixed.px: 33
+
+-- ftd.text: $simple-header-center.title
+if: { simple-header-center.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+align-content: center
+width: fill-container
+
+-- section-loop: $obj.title
+$loop$: $simple-header-center.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+
+-- end: ftd.row
+
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: simple-header-center
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component simple-header-left:
+optional caption title:
+optional ftd.image-src logo: 
+string cta-text:
+string cta-link:
+pr.toc-item list links: 
+integer width: 1440
+
+-- ftd.column: 
+width: fill-container
+background.solid: $inherited.colors.background.base
+
+-- ftd.column:
+width: fill-container
+padding-horizontal.px: 40
+min-height.fixed.px: 112
+align-content: center
+max-width.fixed.px: 1440
+
+
+-- ftd.row:
+width: fill-container
+spacing.fixed.px: 48
+
+-- ftd.row:
+align-self: center
+
+-- ftd.image: 
+if: { simple-header-left.logo != NULL }
+src: $simple-header-left.logo
+height.fixed.px: 33
+
+
+-- ftd.text: $simple-header-left.title
+if: { simple-header-left.title != NULL }
+role: $inherited.types.heading-small
+color: $inherited.colors.text
+
+-- end: ftd.row
+
+-- ftd.row:
+spacing.fixed.px: 32
+width: fill-container
+align-self: center
+
+-- section-loop: $obj.title
+$loop$: $simple-header-left.links as $obj
+url: $obj.url
+is-active: $obj.is-active
+
+-- end: ftd.row
+
+-- cta-button: $simple-header-left.cta-text
+role: primary
+link: $simple-header-left.cta-link
+border-radius: 4 
+
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: ftd.column
+
+
+-- end: simple-header-left
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component section-loop:
+caption title:
+string url:
+boolean is-active:
+
+-- ftd.column:
+
+-- ftd.text: $section-loop.title
+role: $inherited.types.copy-regular
+link: $section-loop.url
+color: $inherited.colors.accent.primary
+color if { section-loop.is-active }: $inherited.colors.text
+role if { section-loop.is-active }: $inherited.types.button-large
+
+-- end: ftd.column
+
+
+-- end: section-loop
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component cta-button:
+caption title:
+optional string role:
+integer border-radius: 0
+optional string link: /
+optional boolean medium: false
+boolean show-arrow: false
+optional ftd.image-src cta-icon: 
+optional integer width:
+boolean align-center: false
+integer padding-vertical: 10
+integer padding-horizontal: 28
+boolean transparent: false
+integer border-width: 1
+optional ftd.image-src src: 
+
+-- ftd.column:
+align-self if { cta-button.align-center }: center
+
+-- ftd.row:
+if: {!cta-button.medium}
+width.fixed.px if { cta-button.width != NULL}: $cta-button.width
+spacing.fixed.px: 10
+link if { cta-button.link != NULL }: $cta-button.link
+background.solid if { cta-button.role == "primary" }: $inherited.colors.cta-primary.base
+background.solid if { cta-button.role == "secondary" }: $inherited.colors.cta-secondary.base
+border-color if { cta-button.role == "transparent" } : $inherited.colors.cta-primary.base
+border-width.px if { cta-button.role == "transparent" }: 1 
+border-radius.px: $cta-button.border-radius
+padding-vertical.px: $cta-button.padding-vertical
+padding-horizontal.px: $cta-button.padding-horizontal
+align-content: center
+
+-- ftd.text: $cta-button.title
+role: $inherited.types.button-medium
+color if { cta-button.role == "secondary" }: $inherited.colors.cta-secondary.text
+color if { cta-button.role == "primary" }: $inherited.colors.cta-primary.text
+color if { cta-button.role == "transparent" }: $inherited.colors.cta-primary.base
+white-space: nowrap
+text-align: center
+
+-- ftd.image:
+if: { cta-button.src != NULL }
+src: $cta-button.src
+width: auto
+height: auto
+align-self: center
+
+-- end: ftd.row
+
+-- ftd.row:
+if: {cta-button.medium}
+width.fixed.px if { cta-button.width != NULL}: $cta-button.width
+spacing.fixed.px: 10
+link if { cta-button.link != NULL }: $cta-button.link
+background.solid if { cta-button.role == "primary" }: $inherited.colors.cta-primary.base
+background.solid if { cta-button.role == "secondary" }: $inherited.colors.cta-secondary.base
+border-radius.px: 30
+padding-vertical.px: $cta-button.padding-vertical
+padding-horizontal.px: $cta-button.padding-horizontal
+align-content: center
+
+-- ftd.text: $cta-button.title
+role: $inherited.types.button-small
+color if { cta-button.role == "secondary" }: $inherited.colors.cta-secondary.text
+color if { cta-button.role == "primary" }: $inherited.colors.cta-primary.text
+white-space: nowrap
+text-align: center
+
+-- ftd.image:
+if: { cta-button.show-arrow }
+src: $cta-button.src
+width: auto
+height: auto
+align-self: center
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: cta-button
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-- component user:
+optional caption title:
+optional body body:
+ftd.image-src src:
+optional integer marginTop: 0
+
+-- ftd.column:
+margin-top.px: $user.marginTop
+
+-- ftd.row:
+spacing.fixed.px: 16
+
+-- ftd.image:
+src: $user.src
+height.fixed.px: 44
+width.fixed.px: 44
+
+-- ftd.column:
+
+-- ftd.text: $user.title
+if: { user.title != NULL }
+role: $inherited.types.blockquote
+color: $inherited.colors.text
+
+-- ftd.text:
+if: { user.body != NULL }
+role: $inherited.types.fine-print
+color: $inherited.colors.text
+
+$user.body
+
+-- end: ftd.column
+
+-- end: ftd.row
+
+-- end: ftd.column
+
+-- end: user
+
+
+
+
+
+
+
